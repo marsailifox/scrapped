@@ -15,12 +15,8 @@ module.exports = {
   
   function show(req, res) {
     Tweet.findById(req.params.id)
-      .populate("cast")
-      .exec(function (err, movie) {
-        Performer.find({ _id: { $nin: movie.cast } }, function (err, performers) {
-          console.log(movie);
-          res.render("tweets/show", { title: "Movie Detail", movie});
-        });
+      .exec(function (err, tweet) {
+          res.render("tweets/show", { title: "Yell", tweet});
       });
   }
   
