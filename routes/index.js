@@ -1,8 +1,18 @@
 var express = require('express');
 var router = express.Router();
 const passport = require('passport')
+const Tweet = require("../models/tweet");
+
 
 /* GET home page. */
+
+router.get('/tweets', (req, res) => {
+  Tweet.find((err, tweets) => {
+    if (err) return res.status(500).send(err);
+    return res.status(200).send(tweets);
+  });
+});
+
 router.get('/', function(req, res, next) {
   res.render('tweets', { title: 'Yell' });
 });
