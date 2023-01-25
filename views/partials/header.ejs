@@ -9,10 +9,10 @@
 </head>
 <body>
   <nav>
-    <a href="/tweets" <%- title === 'All Movies' ? 'class="active"' : '' %>>FEED</a>
+    <a href="/tweets" <%- title === "All Movies" ? class="active"': '' %>>FEED</a>
     <% if (user) { %>
    
-      <a href="/tweets/new" <%- title === 'Yell' ? 'class="active"' : '' %>>POST</a>
+      <a href="/tweets/new" <%- title === "Yell" ? class="active" : '' %>>POST</a>
       <a href="/logout">LOG OUT</a>
     <% } else { %>
       <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>

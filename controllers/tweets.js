@@ -5,26 +5,26 @@ module.exports = {
     show,
     new: newTweet,
     create,
-  }
+}
 
-  function index(req, res) {
+function index(req, res) {
     Tweet.find({}, function (err, tweets) {
       res.render("tweets/index", { title: "Feed", tweets });
     });
-  }
+}
   
-  function show(req, res) {
+function show(req, res) {
     Tweet.findById(req.params.id)
       .exec(function (err, tweet) {
           res.render("tweets/show", { title: "Yell", tweet});
       });
-  }
+}
   
-  function newTweet(req, res) {
+function newTweet(req, res) {
     res.render("tweets/new", { title: "Post" });
-  }
+}
   
-  function create(req, res) {
+function create(req, res) {
     for (let key in req.body) {
       if (req.body[key] === "") delete req.body[key];
     }
@@ -35,5 +35,5 @@ module.exports = {
       console.log(tweet);
       res.redirect(`/tweets/${tweet._id}`);
     });
-  }
+}
   
