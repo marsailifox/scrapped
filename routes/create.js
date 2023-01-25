@@ -1,22 +1,11 @@
-app.post('/tweet', async (req, res) => {
-    try {
-      const tweet = new Tweet({
-        user: req.body.user,
-        message: req.body.message
-      });
-      await tweet.save();
-      res.status(201).json(tweet);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-  
-  app.get('/tweets', async (req, res) => {
-    try {
-      const tweets = await Tweet.find();
-      res.json(tweets);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-  
+var express = require('express');
+var router = express.Router();
+var tweetsCtrl = require('../controllers/movies');
+const ensureLoggedIn = require('../config/ensureLoggedIn')
+
+router.get('/', tweetsCtrl.index);
+router.get('/new', ensureLoggedIn, tweetsCtrl.new);
+router.get('/:id', tweetsCtrl.show);
+router.post('/', ensureLoggedIn, moviesCtrl.create);
+
+module.exports = router;
