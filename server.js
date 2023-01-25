@@ -12,10 +12,8 @@ require('dotenv').config()
 require('./config/database')
 require('./config/passport')
 
-
 var indexRouter = require('./routes/index');
 var tweetsRouter = require('./routes/create');
-
 
 var app = express();
 
