@@ -10,5 +10,5 @@ const tweetSchema = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now }
   }]
 });
-const Tweet = mongoose.model('Tweet', tweetSchema);
+module.exports = mongoose.model('Tweet', tweetSchema);
   
