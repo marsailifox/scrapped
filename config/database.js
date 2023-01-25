@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 mongoose.connect(process.env.DATABASE_URL)
-mongoose.set('strictQuery', true)
+mongoose.set('strictQuery', false)
 
 const db = mongoose.connection
 	

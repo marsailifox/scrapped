@@ -8,4 +8,12 @@ router.get('/new', ensureLoggedIn, tweetsCtrl.new);
 router.get('/:id', tweetsCtrl.show);
 router.post('/', ensureLoggedIn, tweetsCtrl.create);
 
+router.post('/tweet', (req, res) => {
+    const post = new Post(req.body);
+    post.save((err, post) => {
+      if (err) return res.status(500).send(err);
+      return res.status(200).send(post);
+    });
+  });
+
 module.exports = router;

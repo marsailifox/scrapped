@@ -8,9 +8,9 @@ module.exports = {
 }
 
 function index(req, res) {
-    Tweet.find({}, function (err, tweets) {
-      res.render("tweets/index", { title: "Feed", tweets });
-    });
+  Tweet.find({}, function (err, tweets) {
+    res.render("tweets/index", { title: "Feed", tweets });
+  });
 }
   
 function show(req, res) {

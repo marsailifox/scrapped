@@ -10,7 +10,7 @@
 <body>
 
   <nav>
-    <a href="/movies" <%- title === 'Posts' ? 'class="active"' : '' %>>POSTS</a>
+    <a href="/tweets" <%- title === 'Posts' ? 'class="active"' : '' %>>POSTS</a>
     <% if (user) { %>
       <a href="/tweets/new" <%- title === 'Create Post' ? 'class="active"' : '' %>>CREATE POST</a>
       <a href="/logout">LOG OUT</a>

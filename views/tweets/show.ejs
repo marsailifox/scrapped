@@ -1,0 +1,53 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+  <div>Post: </div>
+  <div><%= tweet.title %></div>
+</section>
+<br><br><h2>Replies</h2>
+<% if(user) { %>
+  <form id="add-review-form" method="POST"
+    action="/tweets/<%= tweet._id %>/tweets">
+    <textarea name="content"></textarea>
+    <input type="submit" value="Post">
+  </form>
+<% } %>
+
+<% if (tweets.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% let total = 0 %>
+      <% tweets.forEach(function(r) { %>
+        
+        <tr>
+          <td class="user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" ><%= r.userName %></td>
+          <td><%= r.createdAt.toLocaleDateString() %></td>
+          <td><%= r.content %></td>
+          <td>
+            <% if (user?._id.equals(r.user)) { %>
+              <form action="/tweets/<%= r._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+              </form>
+            <% } %>
+          </td>
+        </tr>
+      <% }); %>
+      <tr>
+        <td colspan="3"></td>
+        <td><strong><%= (total / tweet.length).toFixed(1) %></strong></td>
+      </tr>
+    </tbody>
+  </table>
+  
+<% } else { %>
+  <h5>No Replies</h5>
+<% } %>
+  
+<%- include('../partials/footer') %>
