@@ -8,15 +8,16 @@
   <title><%= title %></title>
 </head>
 <body>
+
   <nav>
-    <a href="/tweets" </a>
+    <a href="/movies" <%- title === 'Posts' ? 'class="active"' : '' %>>POSTS</a>
     <% if (user) { %>
-      <a href="/tweets/new" </a>
+      <a href="/tweets/new" <%- title === 'Create Post' ? 'class="active"' : '' %>>CREATE POST</a>
       <a href="/logout">LOG OUT</a>
     <% } else { %>
       <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
     <% } %>
   </nav>
-  
+
   <main>
     <h1><%= title %></h1>
