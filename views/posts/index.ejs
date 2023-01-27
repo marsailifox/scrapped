@@ -4,7 +4,7 @@
   <% posts.forEach(function(t) { %>
     <li>
       <form action="/posts/<%= t.id %>?_method=DELETE" class="delete-form" method="POST">
-        <button type="submit">X</button>
+        <button type="submit">DELETE</button>
       </form>
       <a href="/posts/<%= t.id %>">
         <%= t.post %>
