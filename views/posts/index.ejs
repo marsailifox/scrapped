@@ -2,14 +2,12 @@
 <h3>Posts as of <%= time %></h3>
 <ul>
   <% posts.forEach(function(t) { %>
-    <li>
       <form action="/posts/<%= t.id %>?_method=DELETE" class="delete-form" method="POST">
+        <a href="/posts/<%= t.id %>">
         <button type="submit">DELETE</button>
       </form>
-      <a href="/posts/<%= t.id %>">
         <%= t.post %>
       </a>
-    </li>
   <% }); %>
 </ul>
 <a href="/posts/new">Make Post</a>
