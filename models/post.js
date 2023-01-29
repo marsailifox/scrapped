@@ -1,8 +1,4 @@
-const posts = [
-  {id: 125223, post: 'howdy'},
-  {id: 127904, post: 'sup'},
-  {id: 139608, post: 'lit'}
-];
+const posts = [];
 
 module.exports = {
   getAll,
