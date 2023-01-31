@@ -10,12 +10,12 @@
 <body>
     <nav>
         <% if (user) { %>
-          <a href="/logout">LOG OUT</a>
+          <a href="/logout" class="navi">Log out</a>
         <% } else { %>
-          <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+          <a href="/auth/google" class="navi">Log in</a>
         <% } %>
+        
+        <a href="/" class="navi">Home</a>
+        <a href="/posts" class="navi">All Posts</a>
       </nav>
-      
-    <a href="/">Home</a>
-    <a href="/posts">All Posts</a>
-    <h1>Yell</h1>
+      <h1>Yell</h1>

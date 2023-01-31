@@ -1,26 +1,78 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html {
   background-color: pink;
-  font-size: 24px;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: rgb(240, 128, 219);
+  padding: 50px;
+  font-size: 28px;
   text-align: center;
+  border: 6px ridge aqua;
+  height: 85%;
+  width: auto;
 }
 
 a {
+  border: 4px groove aqua;
+  text-decoration: none;
+  padding: 10px;
   color: black;
 }
 
+
 h1 {
+  margin: 20px;
+  color: aqua;
+  text-shadow: 0px 1px 4px black;
+
+}
+
+h4 {
+  text-shadow: 0px 1px 4px white;
+}
+
+button {
   margin: 20px;
 }
 
-.login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 34px;
+a:hover {
+  background-color: aqua;
 }
 
-.login img {
-  height: 30px;
+nav {
+  display: inline;
+  font-weight: 700;
+}
+
+.delete-form {
+  text-align: center;
+  margin: 20px;
+  margin: auto;
+}
+
+#mkpost {
+  text-shadow: 0px 1px 4px black;
+  background-color: rgb(238, 7, 250);
+  color: white;
+  border-radius: 50%;
+  margin: auto;
+  padding: 20px;
+}
+
+#mkpost:hover {
+  background-color: aqua;
+}
+
+.navi {
+  text-shadow: 0px 1px 4px black;
+  background-color: rgb(238, 7, 250);
+  color: white;
+  margin: auto;
+}
+
+img {
+  height: 85%;
+  border: 4px groove aqua;
 }

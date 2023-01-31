@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<h3>Posts as of <%= time %></h3>
+<h4>Today's date is <%= time %>, yell something!</h4>
 <ul>
   <% posts.forEach(function(t) { %>
       <form action="/posts/<%= t.id %>?_method=DELETE" class="delete-form" method="POST">
@@ -10,6 +10,6 @@
       </a>
   <% }); %>
 </ul>
-<a href="/posts/new">Make Post</a>
+<a href="/posts/new" id="mkpost">Make Post</a>
 
 <%- include('../partials/footer') %>
