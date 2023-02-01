@@ -1,0 +1,21 @@
+<%- include('./partials/header') %>
+
+<h4>Today's date is <%= time %>, yell something!</h4>
+<form action="/posts" method="POST" id="yell">
+  <label>Post:
+    <input type="text" name="post" id="textbox">
+  </label>
+  <button type="submit" id="mkpost" class="mkyell">Yell!</button>
+</form>
+<ul>
+  <% posts.forEach(function(t) { %>
+      <form action="/posts/<%= t.id %>" class="delete-form" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <a href="/posts/<%= t.id %>">
+        <button type="submit">DELETE</button>
+      </form>
+        <%= t.post %>
+      </a>
+  <% }); %>
+</ul>
+<%- include('./partials/footer') %>

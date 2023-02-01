@@ -8,21 +8,20 @@ require('dotenv').config();
 require('./config/database');
 var session = require('express-session');
 const passport = require('passport');
+const bodyParser = require("body-parser");
 const methodOverride = require('method-override')
-
 require('./config/passport');
 
 
 var indexRouter = require('./routes/index');
-var postsRouter = require('./routes/posts');
-
+const postsRouter = require("./routes/posts");
 
 // Creates the express app
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 // Middleware
 app.use(function(req, res, next) {
@@ -31,6 +30,9 @@ app.use(function(req, res, next) {
   res.locals.time = new Date().toLocaleDateString()
   next()
 })
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -49,6 +51,9 @@ app.use(function (req, res, next) {
 });
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 // Routes
 app.use('/', indexRouter);

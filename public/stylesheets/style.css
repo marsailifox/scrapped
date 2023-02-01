@@ -10,7 +10,7 @@ body {
   font-size: 28px;
   text-align: center;
   border: 6px ridge aqua;
-  height: 85%;
+  height: fit-content;
   width: auto;
 }
 
@@ -35,6 +35,7 @@ h4 {
 
 button {
   margin: 20px;
+  pad: 20px;
 }
 
 a:hover {
@@ -73,6 +74,11 @@ nav {
 }
 
 img {
-  height: 85%;
+  height: 75%;
   border: 4px groove aqua;
 }
+
+.mkyell {
+  font-size: 25px;
+}
+
