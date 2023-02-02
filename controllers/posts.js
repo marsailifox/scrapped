@@ -1,11 +1,12 @@
 const Post = require("../models/post");
+const methodOverride = require("method-override");
 
 module.exports = {
 createPost,
 getAllPosts,
 getPost,
 updatePost,
-deletePost
+delete: deletePost
 };
 
 function createPost  (req, res)  {
@@ -27,46 +28,55 @@ function createPost  (req, res)  {
   };
   
 
-function getAllPosts  (req, res)  {
-Post.find()
-.populate("author")
-.exec((err, posts) => {
-if (err) {
-res.status(500).send(err);
-} else {
-res.render("posts", {posts});
-}
-});
-};
+  function getAllPosts (req, res) {
+    Post.find()
+      .populate("author")
+      .exec((err, posts) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          if (!posts) {
+            res.render('posts', { posts: [] });
+          } else {
+            res.render('posts', { posts: posts });
+          }
+        }
+      });
+  };
+  
 
 function getPost  (req, res)  {
-Post.findById(req.params.id)
-.populate("author")
-.exec((err, post) => {
-if (err) {
-res.status(500).send(err);
+  Post.findById(req.params.id)
+    .populate("author")
+    .exec((err, posts) => {
+  if (err) {
+    res.status(500).send(err);
 } else {
-res.render("post", {post});
+  res.render("posts", {posts: [posts]});
+
 }
 });
 };
 
 function updatePost  (req, res)  {
-Post.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, posts) => {
-if (err) {
-res.status(500).send(err);
-} else {
-res.redirect("/posts/edit");
+  Post.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, posts) => {
+    if (err) {
+  res.status(500).send(err);
+}   else {
+  res.redirect("/edit");
 }
 });
 };
 
-function deletePost (req, res) {
-Post.findByIdAndRemove(req.params.id, (err, post) => {
-if (err) {
-res.status(500).send(err);
-} else {
-res.redirect("/posts");
+function deletePost(req, res) {
+  Post.deleteOne(req.params.id);
+  res.redirect('/posts');
 }
-});
-};
+
+
+
+
+
+
+
+

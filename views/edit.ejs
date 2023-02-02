@@ -1,8 +1,8 @@
 <%- include('./partials/header') %>
 
-<form action="/posts/<%= post.id %>?_method=PUT" method="POST" autocomplete="off">
+<form action="/posts/<%= posts.id %>?_method=PUT" method="POST" autocomplete="off">
     <label>Post</label>
-    <input type="text" name="post" value="<%= post.post %>">
+    <input type="text" name="post" value="<%= posts.posts %>">
     <button type="submit">Submit</button>
 </form>
 

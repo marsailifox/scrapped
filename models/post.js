@@ -20,7 +20,19 @@ const posts = new Schema({
   createdAt: {
       type: Date,
       default: Date.now
+    }
+  });
+  
+  module.exports = {
+    deleteOne
+  };
+	
+  function deleteOne(id) {
+    // All properties attached to req.params are strings!
+    id = parseInt(id);
+    // Find the index based on the id of the todo object
+    const idx = posts.findIndex(post => post.id === id);
+    posts.splice(idx, 1);
   }
-});
 
 module.exports = mongoose.model('Post', posts);
